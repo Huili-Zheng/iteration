@@ -67,3 +67,32 @@ z_scores(mtcars)
 z_scores(x = y_vec)
 ```
 
+## multiple outputs
+
+```{r}
+mean_and_sd = function(x){
+  
+  if (!is.numeric(x)){
+    stop("x needs to be numeric")
+  }
+  
+  if (length(x)<3){
+    stop("x should be at least 3 numbers")
+  }
+  
+  mean_x = mean(x)
+  sd_x = sd(x)
+  
+  #create an output tibble
+  output_df = 
+    tibble(
+      mean = mean_x,
+      sd = sd_x
+    )
+  
+  return(output_df)
+}
+
+mean_and_sd(y_vec)
+```
+
